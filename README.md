@@ -2,6 +2,13 @@
 
 Este es un proyecto de listar restaurantes cercanos
 
+##Documentación 📓
+
+Esta documentación es generada por postman:
+
+[Documentación](https://documenter.getpostman.com/view/24369874/2s8YeoPtBK)
+
+
 ## Funcionalidad 🚀
 
 - Agregar usuarios.
@@ -21,7 +28,7 @@ El proyecto se crea con docker, por lo que solo necesitas ejecutar el comando:
 
 ## Como Usar ⚙️
 
-Ejecute el proyecto a través del IDE y dirijase a http://localhost:5000/ asegurate de que el servidor y la base de datos esté corriendo.
+Ejecute el proyecto a través del IDE y diríjase a http://localhost:5000/ asegúrate de que el servidor y la base de datos esté corriendo.
 
 
 ## Construido con 🛠️
