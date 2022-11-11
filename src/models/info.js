@@ -1,27 +1,23 @@
 //Importar tipos de datos de sequelize
 module.exports = (sequelize, Sequelize) => {
   //Crear tabla en db
-  const User = sequelize.define("user", {
-    name: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
-    last_name: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
+  const Info = sequelize.define("information", {
     user_name: {
       type: Sequelize.STRING,
       allowNull: false,
-      unique: true,
     },
-    password: {
+    user_id: {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    status: {
-      type: Sequelize.BOOLEAN,
+    latitude: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    longitude: {
+      type: Sequelize.STRING,
+      allowNull: false,
     },
   });
-  return User;
+  return Info;
 };

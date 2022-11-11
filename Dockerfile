@@ -12,4 +12,8 @@ COPY . .
 
 EXPOSE 3000
 
+ENV SECRET_KEY = "secretkey"
+
+ENV KEY_GOOGLE="AIzaSyB0YM24KVwmhQz-RH-HkUxhVIj21HZW8xA"
+
 CMD ["npm", "start"]

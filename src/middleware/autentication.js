@@ -1,20 +1,32 @@
-const jsonwebtoken = require('jsonwebtoken')
+const jsonwebtoken = require("jsonwebtoken");
+const db = require("../database");
+const Blacklist = db.blacklist;
 
-
-let verifyToken =(request, response, next) => {
-    let token = request.get('token');
-
+let verifyToken = (request, response, next) => {
+  let token = request.get("token");
+  try {
     //verifica que el token este activo
-    jsonwebtoken.verify(token, "secretkey" , (err, decoded) => {
-        if (err) {
-            return response.status(401).json({
-                ok: false,
-                err: 'TOKEN NO VALIDO'
-            });
-        }
+    jsonwebtoken.verify(token, process.env.SECRET_KEY, async (err, decoded) => {
+      const findBlackList = await Blacklist.findOne({
+        where: {
+          user_id: decoded.user_id,
+        },
+      });
+      if (err) {
+        return response.status(401).json({
+          ok: false,
+          err: "TOKEN NO VALIDO",
+        });
+      }
 
-        request.usuario = decoded.usuario;
-        next();
+      request.user_id = decoded.user_id;
+      next();
     });
-}
-module.exports = verifyToken
+  } catch (error) {
+    response.status(400).json({
+      msg: "Firma invalida",
+    });
+    next();
+  }
+};
+module.exports = verifyToken;

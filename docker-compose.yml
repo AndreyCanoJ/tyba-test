@@ -9,6 +9,7 @@ services:
             - "5000:3000"
         links:
             - mysql
+        
     mysql:
         container_name: mysqldatabase   
         image: mysql
