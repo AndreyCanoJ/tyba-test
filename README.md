@@ -2,7 +2,7 @@
 
 Este es un proyecto de listar restaurantes cercanos
 
-##Documentación 📓
+## Documentación 📓
 
 Esta documentación es generada por postman:
 
