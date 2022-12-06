@@ -9,10 +9,10 @@ let verifyToken = (request, response, next) => {
     jsonwebtoken.verify(token, process.env.SECRET_KEY, async (err, decoded) => {
       const findBlackList = await Blacklist.findOne({
         where: {
-          user_id: decoded.user_id,
+          token
         },
       });
-      if (err) {
+      if (err || findBlackList) {
         return response.status(401).json({
           ok: false,
           err: "TOKEN NO VALIDO",
